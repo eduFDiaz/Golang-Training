@@ -23,6 +23,10 @@ func (t *Trade) Value() float64 {
 	return value
 }
 
+func (t *Trade) doublePrice() {
+	t.Price *= 2
+}
+
 func main() {
 	t := Trade{
 		Symbol: "MSFT",
@@ -31,4 +35,8 @@ func main() {
 		Buy:    true,
 	}
 	fmt.Println(t.Value())
+
+	fmt.Println(t.Price)
+	t.doublePrice()
+	fmt.Println(t.Price)
 }

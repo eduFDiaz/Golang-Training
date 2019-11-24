@@ -27,7 +27,7 @@ func main() {
 		Price:  99.98,
 		Buy:    true,
 	}
-	fmt.Printf("%+v\n", t2)
+	fmt.Printf("Volume of t2 %+v\n", t2.Volume)
 
 	t3 := Trade{}
 	fmt.Printf("%+v\n", t3)
