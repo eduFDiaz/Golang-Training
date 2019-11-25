@@ -4,8 +4,8 @@ package main
 import (
 	"fmt"
 	"os"
-
 )
+
 // Config holds configuration
 type Config struct {
 	// configuration fields go here (redacted)

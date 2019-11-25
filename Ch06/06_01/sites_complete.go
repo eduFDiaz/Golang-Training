@@ -1,22 +1,21 @@
-// Get content type of sites
+// Get content type of sites (using channels)
 package main
 
 import (
 	"fmt"
 	"net/http"
-	"sync"
 )
 
-func returnType(url string) {
+func returnType(url string, out chan string) {
 	resp, err := http.Get(url)
 	if err != nil {
-		fmt.Printf("error: %s\n", err)
+		out <- fmt.Sprintf("%s -> error: %s", url, err)
 		return
 	}
 
 	defer resp.Body.Close()
 	ctype := resp.Header.Get("content-type")
-	fmt.Printf("%s -> %s\n", url, ctype)
+	out <- fmt.Sprintf("%s -> %s", url, ctype)
 }
 
 func main() {
@@ -26,13 +25,14 @@ func main() {
 		"https://httpbin.org/xml",
 	}
 
-	var wg sync.WaitGroup
+	// Create response channel
+	ch := make(chan string)
 	for _, url := range urls {
-		wg.Add(1)
-		go func(url string) {
-			returnType(url)
-			wg.Done()
-		}(url)
+		go returnType(url, ch)
 	}
-	wg.Wait()
+
+	for range urls { // Run number of URLs times
+		out := <-ch
+		fmt.Println(out)
+	}
 }

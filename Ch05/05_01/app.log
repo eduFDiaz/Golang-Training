@@ -1,0 +1,20 @@
+2019/11/24 17:38:53 error: open /path/to/config.toml: The system cannot find the path specified.
+can't open configuration file
+main.readConfig
+	C:/Users/Eduardo Fernandez/Documents/GitHub/Golang-Training/Ch05/05_01/errors_complete.go:20
+main.main
+	C:/Users/Eduardo Fernandez/Documents/GitHub/Golang-Training/Ch05/05_01/errors_complete.go:41
+runtime.main
+	c:/go/src/runtime/proc.go:203
+runtime.goexit
+	c:/go/src/runtime/asm_amd64.s:1357
+2019/11/24 17:39:25 error: open /path/to/config.toml: The system cannot find the path specified.
+can't open configuration file
+main.readConfig
+	C:/Users/Eduardo Fernandez/Documents/GitHub/Golang-Training/Ch05/05_01/errors_complete.go:20
+main.main
+	C:/Users/Eduardo Fernandez/Documents/GitHub/Golang-Training/Ch05/05_01/errors_complete.go:41
+runtime.main
+	c:/go/src/runtime/proc.go:203
+runtime.goexit
+	c:/go/src/runtime/asm_amd64.s:1357
